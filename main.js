@@ -6,14 +6,18 @@ let rates = {
     lastUpdated: new Date().toLocaleDateString()
 };
 
-// Load rates from localStorage
 function loadRates() {
-    const savedRates = localStorage.getItem('jewelryRates');
-    if (savedRates) {
-        rates = JSON.parse(savedRates);
-        updateDisplayedRates();
-    }
+    fetch("https://script.google.com/macros/s/AKfycbyguYfZtWNKosIShPQUwVtRfBRacVr8hhqp6_DswGT-CL5NzP4w56L2vAeYM_yBrDdC/exec")
+        .then(res => res.json())
+        .then(data => {
+            rates = data;
+            updateDisplayedRates();
+        })
+        .catch(err => {
+            console.error("Failed to load rates:", err);
+        });
 }
+
 
 // Function to update displayed rates
 function updateDisplayedRates() {
@@ -35,37 +39,39 @@ function updateDisplayedRates() {
 function handleRateUpdate() {
     const updateDate = document.getElementById('updateDate').value;
     const new22kRate = parseFloat(document.getElementById('new22kRate').value);
-    const new24kRate = parseFloat(document.getElementById('new24kRate').value); // This is now for 10 grams
+    const new24kRate = parseFloat(document.getElementById('new24kRate').value);
     const newSilverRate = parseFloat(document.getElementById('newSilverRate').value);
 
-    if (!updateDate) {
-        alert('Please select a date');
+    if (!updateDate || isNaN(new22kRate) || isNaN(new24kRate) || isNaN(newSilverRate)) {
+        alert('Please enter valid inputs');
         return;
     }
 
-    if (isNaN(new22kRate) || isNaN(new24kRate) || isNaN(newSilverRate)) {
-        alert('Please enter valid numbers for all rates');
-        return;
-    }
-
-    rates = {
+    const payload = {
         gold22k: new22kRate,
-        gold24k: new24kRate, // Storing the 10-gram rate directly
+        gold24k: new24kRate,
         silver: newSilverRate,
         lastUpdated: new Date(updateDate).toLocaleDateString()
     };
 
-    localStorage.setItem('jewelryRates', JSON.stringify(rates));
-    updateDisplayedRates();
-
-    document.getElementById('updateDate').value = '';
-    document.getElementById('new22kRate').value = '';
-    document.getElementById('new24kRate').value = '';
-    document.getElementById('newSilverRate').value = '';
-
-    alert('Rates updated successfully!');
-    window.location.href = 'index.html';
+    fetch("https://script.google.com/macros/s/AKfycbyguYfZtWNKosIShPQUwVtRfBRacVr8hhqp6_DswGT-CL5NzP4w56L2vAeYM_yBrDdC/exec", {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.text())
+    .then(() => {
+        alert("Rates updated successfully!");
+        window.location.href = "index.html";
+    })
+    .catch(err => {
+        console.error("Error updating:", err);
+        alert("Failed to update rates.");
+    });
 }
+
 
 // Function to update countdown timers
 function updateCountdowns() {

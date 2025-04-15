@@ -7,7 +7,7 @@ let rates = {
 };
 
 function loadRates() {
-    fetch("https://script.google.com/macros/s/AKfycbyguYfZtWNKosIShPQUwVtRfBRacVr8hhqp6_DswGT-CL5NzP4w56L2vAeYM_yBrDdC/exec")
+    fetch("https://script.google.com/macros/s/AKfycbx5psVeDoeuWjiK5NJ0hWHgm9h1Y4cgE_QPmIHfuWdFE_I82gIhcqrCoiu2Ct8EHinq/exec")
         .then(res => res.json())
         .then(data => {
             rates = data;
@@ -53,7 +53,7 @@ function handleRateUpdate() {
     formData.append("silver", newSilverRate);
     formData.append("lastUpdated", new Date(updateDate).toLocaleDateString());
   
-    fetch("https://script.google.com/macros/s/AKfycbyguYfZtWNKosIShPQUwVtRfBRacVr8hhqp6_DswGT-CL5NzP4w56L2vAeYM_yBrDdC/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbx5psVeDoeuWjiK5NJ0hWHgm9h1Y4cgE_QPmIHfuWdFE_I82gIhcqrCoiu2Ct8EHinq/exec", {
       method: "POST",
       body: formData,
       headers: {

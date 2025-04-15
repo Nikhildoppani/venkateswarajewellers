@@ -41,36 +41,36 @@ function handleRateUpdate() {
     const new22kRate = parseFloat(document.getElementById('new22kRate').value);
     const new24kRate = parseFloat(document.getElementById('new24kRate').value);
     const newSilverRate = parseFloat(document.getElementById('newSilverRate').value);
-
+  
     if (!updateDate || isNaN(new22kRate) || isNaN(new24kRate) || isNaN(newSilverRate)) {
-        alert('Please enter valid inputs');
-        return;
+      alert('Please enter valid inputs');
+      return;
     }
-
-    const payload = {
-        gold22k: new22kRate,
-        gold24k: new24kRate,
-        silver: newSilverRate,
-        lastUpdated: new Date(updateDate).toLocaleDateString()
-    };
-
+  
+    const formData = new URLSearchParams();
+    formData.append("gold22k", new22kRate);
+    formData.append("gold24k", new24kRate);
+    formData.append("silver", newSilverRate);
+    formData.append("lastUpdated", new Date(updateDate).toLocaleDateString());
+  
     fetch("https://script.google.com/macros/s/AKfycbyguYfZtWNKosIShPQUwVtRfBRacVr8hhqp6_DswGT-CL5NzP4w56L2vAeYM_yBrDdC/exec", {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: {
-            "Content-Type": "application/json"
-        }
+      method: "POST",
+      body: formData,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
     })
-    .then(res => res.text())
-    .then(() => {
+      .then(res => res.text())
+      .then(() => {
         alert("Rates updated successfully!");
         window.location.href = "index.html";
-    })
-    .catch(err => {
+      })
+      .catch(err => {
         console.error("Error updating:", err);
         alert("Failed to update rates.");
-    });
-}
+      });
+  }
+  
 
 
 // Function to update countdown timers

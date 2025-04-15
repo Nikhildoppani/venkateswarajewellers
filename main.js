@@ -56,12 +56,14 @@ function handleRateUpdate() {
     console.log(formData.toString());  // Check if the data is being sent properly
 
     fetch("https://script.google.com/macros/s/AKfycbx5psVeDoeuWjiK5NJ0hWHgm9h1Y4cgE_QPmIHfuWdFE_I82gIhcqrCoiu2Ct8EHinq/exec", {
-      method: "POST",
-      body: formData,
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      }
-    })
+        method: "POST",
+        mode: "cors",  // ✅ THIS IS IMPORTANT
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: formData
+      })
+      
       .then(res => res.text())
       .then(() => {
         alert("Rates updated successfully!");

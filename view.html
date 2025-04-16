@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Data Viewer</title>
+</head>
+<body>
+  <h2>User Information</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Pincode</th>
+      </tr>
+    </thead>
+    <tbody id="dataBody">
+    </tbody>
+  </table>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzXWXXoIE_E1vepzn_FXeGDq4pniLSiRLKDJBrpaLgD-LeVeNA38LQFfnfA_R0ZYdWECw/exec';
+
+    fetch(scriptURL)
+      .then(response => response.json())
+      .then(data => {
+        const tbody = document.getElementById('dataBody');
+        data.forEach(user => {
+          const row = `<tr>
+            <td>${user.name}</td>
+            <td>${user.phone}</td>
+            <td>${user.address}</td>
+            <td>${user.pincode}</td>
+          </tr>`;
+          tbody.innerHTML += row;
+        });
+      });
+  </script>
+</body>
+</html>

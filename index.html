@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/style.css">
 </head>
+<script>
+    fetch("Yhttps://script.google.com/macros/s/AKfycbzdI7nAdJk5I7-jxZ4yU2lOPi29dW2zOGxQqRfFg_rAxDkJUYNrGGN7BH3_-2ocm9Yo/exec")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("lastUpdated").textContent = data.updateDate || "-";
+        document.getElementById("rate22k").textContent = data.new22kRate || "0";
+        document.getElementById("rate24k").textContent = data.new24kRate || "0";
+        document.getElementById("rateSilver").textContent = data.newSilverRate || "0";
+      })
+      .catch(error => {
+        console.error("Failed to fetch latest rates:", error);
+      });
+    </script>
+    
 <body>
     <div class="top-bar">
         <div class="container">
@@ -39,7 +53,7 @@
                 <div class="logo">
                     <h1>Venkateswara</h1>
                 </div>
-                <div class="search-bar">
+                <!-- <div class="search-bar">
                     <select class="category-select">
                         <option>All Categories</option>
                         <option>Gold Jewelry</option>
@@ -53,7 +67,7 @@
                     <a href="#" class="wishlist"><i class="fas fa-heart"></i> <span>0</span></a>
                     <a href="#" class="cart"><i class="fas fa-shopping-cart"></i> <span>0</span></a>
                     <div class="total-amount">₹0.00</div>
-                </div>
+                </div> -->
             </div>
         </div>
     </header>
@@ -66,8 +80,8 @@
             <ul class="nav-links">
                 <li><a href="index.html" class="active">HOME</a></li>
                 <li><a href="shop.html">SHOP</a></li>
-                <li><a href="#collection">COLLECTION</a></li>
-                <li><a href="#deals">GOLD RUSH DEALS</a></li>
+                <li><a href="collection.html">COLLECTION</a></li>
+                <li><a href="deals.html">GOLD RUSH DEALS</a></li>
                 <li><a href="update.html">UPDATE RATES</a></li>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
@@ -109,6 +123,7 @@
                 </div>
             </div>
         </section>
+    
 
         <section id="deals" class="deals-section">
             <div class="container">

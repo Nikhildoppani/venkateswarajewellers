@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shop - Venkateswara Jewellers</title>
+    <title>Gold Rush Deals - Venkateswara Jewellers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/shop.css">
+    <link rel="stylesheet" href="/deals.css">
 </head>
 <body>
     <div class="top-bar">
@@ -66,88 +66,102 @@
             </button>
             <ul class="nav-links">
                 <li><a href="index.html">HOME</a></li>
-                <li><a href="shop.html" class="active">SHOP</a></li>
+                <li><a href="shop.html">SHOP</a></li>
                 <li><a href="#collection">COLLECTION</a></li>
-                <li><a href="#deals">GOLD RUSH DEALS</a></li>
+                <li><a href="deals.html" class="active">GOLD RUSH DEALS</a></li>
                 <li><a href="update.html">UPDATE RATES</a></li>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
         </div>
     </nav>
 
-    <main class="shop-page">
+    <main class="deals-page">
         <div class="container">
-            <div class="shop-header">
-                <h1>CONTEMPORARY DESIGNS</h1>
-                <p>Discover our exclusive collection of handcrafted jewelry pieces</p>
+            <div class="deals-header">
+                <h1>GOLD RUSH DEALS</h1>
+                <p>Exclusive offers on our finest jewelry collection</p>
             </div>
 
             <!-- <div class="category-filter">
                 <ul class="filter-list">
-                    <li><a href="#" class="active">ALL</a></li>
+                    <li><a href="#" class="active">ALL DEALS</a></li>
                     <li><a href="#">GOLD</a></li>
                     <li><a href="#">DIAMOND</a></li>
                     <li><a href="#">SILVER</a></li>
-                    <li><a href="#">BRIDAL</a></li>
-                    <li><a href="#">TRADITIONAL</a></li>
+                    <li><a href="#">NEW ARRIVALS</a></li>
                 </ul>
                 <button class="filter-btn">
                     FILTER <i class="fas fa-sliders-h"></i>
                 </button>
             </div> -->
 
-            <div class="products-grid">
-                <div class="product-card">
-                    <span class="badge new">NEW</span>
+            <div class="deals-grid">
+                <div class="deal-card">
+                    <span class="badge hot">HOT DEAL</span>
                     <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=400" alt="Gold Necklace">
-                    <h3>Traditional Gold Necklace</h3>
-                    <p class="price">₹95,000</p>
+                    <div class="deal-info">
+                        <h3>Traditional Gold Necklace</h3>
+                        <div class="price">
+                            <span class="original">₹125,000</span>
+                            <span class="discounted">₹95,000</span>
+                        </div>
+                        <div class="deal-timer">
+                            <span class="timer-label">Ends in:</span>
+                            <span class="countdown">48:00:00</span>
+                        </div>
+                        <button class="buy-now">BUY NOW</button>
+                    </div>
                 </div>
 
-                <div class="product-card">
-                    <span class="badge sale">-15%</span>
+                <div class="deal-card">
+                    <span class="badge new">NEW</span>
                     <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&q=80&w=400" alt="Diamond Ring">
-                    <h3>Diamond Engagement Ring</h3>
-                    <p class="price"><span class="original">₹75,000</span> ₹63,750</p>
+                    <div class="deal-info">
+                        <h3>Diamond Engagement Ring</h3>
+                        <div class="price">
+                            <span class="original">₹85,000</span>
+                            <span class="discounted">₹72,250</span>
+                        </div>
+                        <div class="deal-timer">
+                            <span class="timer-label">Ends in:</span>
+                            <span class="countdown">24:00:00</span>
+                        </div>
+                        <button class="buy-now">BUY NOW</button>
+                    </div>
                 </div>
 
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=400" alt="Silver Bracelet">
-                    <h3>Silver Chain Bracelet</h3>
-                    <p class="price">₹12,500</p>
-                </div>
-
-                <div class="product-card">
-                    <span class="badge new">NEW</span>
-                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&q=80&w=400" alt="Gold Earrings">
-                    <h3>Traditional Gold Earrings</h3>
-                    <p class="price">₹45,000</p>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1603561618727-1f9b31607c7a?auto=format&fit=crop&q=80&w=400" alt="Diamond Necklace">
-                    <h3>Diamond Pendant Set</h3>
-                    <p class="price">₹125,000</p>
-                </div>
-
-                <div class="product-card">
+                <div class="deal-card">
                     <span class="badge sale">-20%</span>
-                    <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=400" alt="Silver Set">
-                    <h3>Silver Jewelry Set</h3>
-                    <p class="price"><span class="original">₹35,000</span> ₹28,000</p>
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=400" alt="Silver Set">
+                    <div class="deal-info">
+                        <h3>Silver Jewelry Set</h3>
+                        <div class="price">
+                            <span class="original">₹35,000</span>
+                            <span class="discounted">₹28,000</span>
+                        </div>
+                        <div class="deal-timer">
+                            <span class="timer-label">Ends in:</span>
+                            <span class="countdown">72:00:00</span>
+                        </div>
+                        <button class="buy-now">BUY NOW</button>
+                    </div>
                 </div>
 
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=400" alt="Gold Bangles">
-                    <h3>Traditional Gold Bangles</h3>
-                    <p class="price">₹85,000</p>
-                </div>
-
-                <div class="product-card">
-                    <span class="badge new">NEW</span>
-                    <img src="https://images.unsplash.com/photo-1602752275197-9e5bb0b1767c?auto=format&fit=crop&q=80&w=400" alt="Diamond Bracelet">
-                    <h3>Diamond Tennis Bracelet</h3>
-                    <p class="price">₹195,000</p>
+                <div class="deal-card">
+                    <span class="badge hot">HOT DEAL</span>
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&q=80&w=400" alt="Gold Bangles">
+                    <div class="deal-info">
+                        <h3>Traditional Gold Bangles</h3>
+                        <div class="price">
+                            <span class="original">₹155,000</span>
+                            <span class="discounted">₹131,750</span>
+                        </div>
+                        <div class="deal-timer">
+                            <span class="timer-label">Ends in:</span>
+                            <span class="countdown">36:00:00</span>
+                        </div>
+                        <button class="buy-now">BUY NOW</button>
+                    </div>
                 </div>
             </div>
 
